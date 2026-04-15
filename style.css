@@ -1,0 +1,1501 @@
+/* =========================
+   1. FONT
+========================= */
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("./fonts/DungGeunMo.woff2") format("woff2"),
+       url("./fonts/DungGeunMo.woff") format("woff");
+  font-display: swap;
+}
+
+/* =========================
+   2. RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  font-family: "DungGeunMo", monospace;
+  color: #fff;
+}
+
+/* =========================
+   3. DEV NAV
+========================= */
+.dev-nav {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  gap: 6px;
+}
+
+.dev-nav-btn {
+  width: 56px;
+  height: 34px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: rgba(255, 248, 214, 0.96);
+  color: #000;
+  font-family: "DungGeunMo", monospace;
+  font-size: 11px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #888;
+}
+
+.dev-nav-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #888;
+}
+
+/* =========================
+   4. SECTION COMMON
+========================= */
+section {
+  width: 390px;
+  height: 844px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  display: none;
+  background: #000;
+}
+
+section.active {
+  display: block;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.section01-inner,
+.section02-inner,
+.section04-inner,
+.section05-inner,
+.section06-inner,
+.section09-inner,
+.section10-inner,
+.section11-inner,
+.section13-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   5. COMMON UI
+========================= */
+.story-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  width: 330px;
+  min-height: 150px;
+  padding: 20px 24px 52px;
+  border: 1px solid #000;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 8px 0 rgba(40, 40, 40, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.story-bubble.show {
+  animation: fadeInBubble 0.45s ease forwards;
+  pointer-events: auto;
+}
+
+.story-text {
+  font-size: 20px;
+  line-height: 1.45;
+  color: #000;
+  word-break: keep-all;
+}
+
+.continue-btn {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  border: none;
+  background: transparent;
+  color: #000;
+  font-family: "DungGeunMo", monospace;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.continue-btn::after {
+  content: " >";
+}
+
+.bubble-portrait {
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.has-portrait {
+  padding-left: 94px;
+}
+
+@keyframes fadeInBubble {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeOutBadge {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+@keyframes fadeInCharacter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   6. SECTION01
+========================= */
+/* =========================
+   6. SECTION01
+========================= */
+#section01 {
+  background: url("./img/01_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section01-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.game-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  transform: translate(-50%, -58%);
+  animation: titlePulse 1.6s ease-in-out infinite;
+}
+
+.game-title img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.start-text {
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 0 24px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.7),
+    0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+.start-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 72px;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 56px;
+  border: 3px solid #fff;
+  border-radius: 18px;
+  background: linear-gradient(to bottom, #232323 0%, #111 100%);
+  color: #fff;
+  font-family: "DungGeunMo", monospace;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 6px 0 #333;
+}
+
+.start-btn:active {
+  transform: translateX(-50%) translateY(4px);
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 2px 0 #333;
+}
+
+/* =========================
+   7. SECTION02
+========================= */
+#section02 {
+  background: url("./img/01_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+.story-character {
+  position: absolute;
+  opacity: 0;
+  animation: fadeInCharacter 0.8s ease forwards;
+}
+
+.adventurer {
+  width: 240px;
+  left: 2px;
+  bottom: 245px;
+  animation-delay: 0.2s;
+}
+
+.hamster {
+  width: 240px;
+  right: 2px;
+  bottom: 245px;
+  animation-delay: 0.6s;
+}
+
+/* =========================
+   8. SECTION03
+========================= */
+#section03 {
+  background: #000;
+}
+
+.section03-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.section03-cut.active {
+  display: block;
+}
+
+.cut1,
+.cut2,
+.cut3 {
+  background-image: url("./img/02_bg.png");
+}
+
+.cut4,
+.cut5 {
+  background-image: url("./img/03_bg.png");
+}
+
+#section03 .story-bubble {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#section03 .story-text {
+  padding-right: 8px;
+}
+
+/* =========================
+   9. SECTION04
+========================= */
+#section04 {
+  background: url("./img/04_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section04-bubble {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.choice-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 120px;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 150px;
+  display: none;
+}
+
+.choice-wrap.show {
+  display: block;
+}
+
+.choice-btn {
+  width: 100%;
+  height: 58px;
+  position: absolute;
+  left: 0;
+  border: 3px solid #000;
+  border-radius: 18px;
+  background: #fff;
+  color: #000;
+  font-family: "DungGeunMo", monospace;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.go-btn {
+  top: 0;
+}
+
+.no-go-btn {
+  top: 74px;
+}
+
+/* =========================
+   10. SECTION05
+========================= */
+#section05 {
+  background: url("./img/04_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+#section05.paper-mode {
+  background: #000;
+}
+
+#section05.paper-mode::before,
+#section05.paper-mode::after {
+  display: none;
+}
+
+.warning-bubble {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.warning-title {
+  margin-bottom: 8px;
+}
+
+.paper-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 290px;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 5;
+}
+
+.paper-wrap.show {
+  display: block;
+}
+
+.paper-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.paper-text {
+  position: absolute;
+  inset: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+.paper-line {
+  opacity: 0;
+  transform: translateY(6px);
+  font-size: 18px;
+  line-height: 1.45;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.paper-line.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.3s ease;
+}
+
+.paper-line.highlight {
+  margin-top: 18px;
+  font-size: 24px;
+}
+
+.paper-line.final {
+  margin-top: 8px;
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.paper-next-btn {
+  position: absolute;
+  left: 50%;
+  bottom: -80px;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 44px;
+  border: 3px solid #000;
+  border-radius: 14px;
+  background: #fff;
+  color: #000;
+  font-family: "DungGeunMo", monospace;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+}
+
+.paper-next-btn.show {
+  display: block;
+}
+
+.paper-wrap {
+  z-index: 5;
+}
+/* =========================
+   11. CHAPTER COMMON
+========================= */
+.chapter-badge {
+  position: absolute;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 140px;
+  height: 48px;
+  padding: 0 20px;
+  border: 4px solid #2e4b1f;
+  border-radius: 12px;
+  background: #89aa57;
+  color: #fff;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 4px 4px 0 #1d2a12;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chapter-badge.show {
+  animation: fadeOutBadge 2s ease forwards;
+}
+
+.chapter-start {
+  position: absolute;
+  top: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 54px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  user-select: none;
+}
+
+.chapter-start:hover {
+  transform: translateX(-50%) scale(1.03);
+}
+
+.chapter-start:active {
+  transform: translateX(-50%) scale(0.97);
+}
+
+.chapter-bubble {
+  bottom: 36px;
+}
+
+/* =========================
+   12. SECTION06
+========================= */
+#section06 {
+  background: url("./img/01_chapter_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+#section06 .chapter-bubble {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#section06 .chapter-bubble.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* =========================
+   13. SECTION07
+========================= */
+#section07 {
+  background: #000;
+}
+
+.section07-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.section07-cut.active {
+  display: block;
+}
+
+.cut07-1 {
+  background-image: url("./img/01_chapter_bg_2.png");
+}
+
+.cut07-2 {
+  background-image: url("./img/01_chapter_bg_3.png");
+}
+
+/* 말풍선 : 위쪽 */
+#section07 .section07-bubble1 {
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  width: 330px;
+  min-height: 150px;
+  padding: 20px 24px 52px;
+  border: 1px solid #000;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 8px 0 rgba(40, 40, 40, 0.2);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#section07 .section07-bubble2 {
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  transform: translateX(-50%);
+  width: 330px;
+  min-height: 146px;
+  padding: 20px 24px 52px;
+  border: 1px solid #000;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 8px 0 rgba(40, 40, 40, 0.2);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 버튼 : 하단에 따로 */
+.help-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 54px;
+  transform: translateX(-50%);
+  min-width: 160px;
+  height: 52px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background: #fff2be;
+  color: #000;
+  font-family: "DungGeunMo", monospace;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #999;
+  z-index: 5;
+}
+
+.help-btn:active {
+  transform: translateX(-50%) translateY(2px);
+  box-shadow: 0 2px 0 #999;
+}
+
+/* =========================
+   14. SECTION08
+========================= */
+#section08 {
+  background: #000;
+}
+
+.section08-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.section08-cut.active {
+  display: block;
+}
+
+.cut08-1 {
+  background-image: url("./img/01_chapter_bg_4.png");
+}
+
+.cut08-2,
+.cut08-3,
+.cut08-4,
+.cut08-5 {
+  background-image: url("./img/01_chapter_bg_5.png");
+}
+
+#section08 .story-bubble,
+#section08 .section08-bubble {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 36px;
+}
+
+.hamster-choice-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hamster-choice-btn {
+  width: 100%;
+  height: 60px;
+  border: 3px solid #6f6a57;
+  border-radius: 8px;
+  background: #d7d0b5;
+  color: #222;
+  font-family: "DungGeunMo", monospace;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #8b846e;
+}
+
+.hamster-choice-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #8b846e;
+}
+
+#section08 .bubble-portrait {
+  width: 72px;
+  height: 72px;
+  top: 18px;
+  left: 16px;
+}
+
+#section08 .has-portrait {
+  padding-left: 98px;
+}
+
+/* =========================
+   15. SECTION09
+========================= */
+#section09 {
+  background: url("./img/01_chapter_bg_6.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section09-bubble {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 36px;
+}
+
+/* =========================
+   16. SECTION10
+========================= */
+#section10 {
+  background: url("./img/01_chapter_bg_7.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section10-bubble {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 36px;
+}
+
+/* =========================
+   17. SECTION11
+========================= */
+#section11 {
+  background: url("./img/02_chapter_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section11-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section11-cut.active {
+  display: block;
+}
+
+#section11 .story-bubble,
+#section11 .chapter-bubble {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 36px;
+}
+
+/* =========================
+   18. SECTION12
+========================= */
+#section12 {
+  background: #000;
+}
+
+.section12-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.section12-cut.active {
+  display: block;
+}
+
+.cut12-1,
+.cut12-2,
+.cut12-3 {
+  background-image: url("./img/02_chapter_bg_2.png");
+}
+
+#section12 .story-bubble,
+#section12 .section12-bubble {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 36px;
+}
+
+/* =========================
+   19. SECTION13
+========================= */
+#section13 {
+  background: url("./img/02_chapter_bg_2.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section13-intro-bubble {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 140px;
+}
+
+.fight-start-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 54px;
+  transform: translateX(-50%);
+  min-width: 160px;
+  height: 52px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background: #fff2be;
+  color: #000;
+  font-family: "DungGeunMo", monospace;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #999;
+  z-index: 5;
+}
+
+.fight-start-btn:active {
+  transform: translateX(-50%) translateY(2px);
+  box-shadow: 0 2px 0 #999;
+}
+
+/* 픽셀 틱택토 */
+.battle-game-wrap {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 90px;
+  transform: translateX(-50%);
+  width: 340px;
+  padding: 18px 16px 16px;
+  z-index: 10;
+  background: #2a1d45;
+  border: 4px solid #120b22;
+}
+
+.battle-game-wrap.show {
+  display: block;
+}
+
+.battle-title-box {
+  background: #3b2a63;
+  border: 4px solid #120b22;
+  padding: 12px 10px;
+  text-align: center;
+  margin-bottom: 14px;
+  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.battle-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff2a8;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.battle-desc {
+  margin: 8px 0 0;
+  font-size: 10px;
+  line-height: 1.7;
+  color: #d2c7ff;
+}
+
+.battle-status {
+  min-height: 56px;
+  background: #201635;
+  border: 4px solid #120b22;
+  margin-bottom: 14px;
+  padding: 12px 10px;
+  font-size: 11px;
+  line-height: 1.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.battle-board-wrap {
+  background: #24183d;
+  border: 4px solid #120b22;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.battle-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.battle-cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 4px solid #120b22;
+  background: #4a3777;
+  color: #fff8d6;
+  font-family: "DungGeunMo", monospace;
+  font-size: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.battle-cell:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  background: #5a448e;
+}
+
+.battle-cell:active:not(:disabled) {
+  transform: translate(1px, 1px);
+}
+
+.battle-cell:disabled {
+  cursor: default;
+}
+
+.battle-cell.x {
+  color: #7be0ff;
+  text-shadow: 2px 2px 0 #163845;
+}
+
+.battle-cell.o {
+  color: #ffb36b;
+  text-shadow: 2px 2px 0 #5a2e00;
+}
+
+.battle-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.battle-control-btn {
+  border: 4px solid #120b22;
+  font-family: "DungGeunMo", monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 12px 8px;
+  cursor: pointer;
+  color: #111;
+  box-shadow: 4px 4px 0 #0b0714;
+}
+
+#battle-reset-btn {
+  background: #69f0ae;
+}
+
+#battle-ai-first-btn {
+  background: #ffd166;
+}
+
+.battle-control-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #0b0714;
+}
+
+.battle-legend {
+  margin-top: 14px;
+  background: #201635;
+  border: 4px solid #120b22;
+  padding: 10px;
+  font-size: 9px;
+  line-height: 1.8;
+  color: #d2c7ff;
+}
+
+.battle-legend strong {
+  color: #fff4bf;
+}
+
+.section13-result-bubble {
+  z-index: 20;
+}
+
+.section13-result-bubble.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.section13-blackout {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.section13-blackout.show {
+  animation: fadeInBlackOverlay 0.6s ease forwards;
+}
+
+.battle-game-wrap.fade-out {
+  animation: fadeOutGameBoard 0.5s ease forwards;
+}
+
+@keyframes titlePulse {
+  0% {
+    transform: translate(-50%, -58%) scale(0.92);
+  }
+  50% {
+    transform: translate(-50%, -58%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -58%) scale(0.92);
+  }
+}
+
+@keyframes fadeInBlackOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutGameBoard {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.96);
+  }
+}
+
+/* =========================
+   SECTION14
+========================= */
+#section14 {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 390px;
+  height: 844px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: url("./img/02_chapter_bg_3.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section14-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section14-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  width: 330px;
+  min-height: 150px;
+  padding: 20px 24px 52px;
+  border: 1px solid #000;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 8px 0 rgba(40, 40, 40, 0.2);
+  opacity: 1;
+  pointer-events: auto;
+}
+/* =========================
+   SECTION15
+========================= */
+#section15 {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 390px;
+  height: 844px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: url("./img/03_chapter_bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+.section15-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section15-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.section15-cut.active {
+  display: block;
+}
+
+/* 첫 화면 */
+.cut15-1 {
+  background-image: url("./img/03_chapter_bg.png");
+}
+
+/* 두 번째, 세 번째 컷 */
+.cut15-2,
+.cut15-3 {
+  background-image: url("./img/03_chapter_bg_2.png");
+}
+
+/* 챕터 배지 */
+#section15 .chapter-badge {
+  position: absolute;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 140px;
+  height: 48px;
+  padding: 0 20px;
+  border: 4px solid #2e4b1f;
+  border-radius: 12px;
+  background: #89aa57;
+  color: #fff;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 4px 4px 0 #1d2a12;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+#section15 .chapter-badge.show {
+  animation: fadeOutBadge 2s ease forwards;
+}
+
+/* 말풍선 */
+#section15 .section15-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  width: 330px;
+  min-height: 150px;
+  padding: 20px 24px 52px;
+  border: 1px solid #000;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 0 0 2px #000 inset,
+    0 8px 0 rgba(40, 40, 40, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#section15 .section15-bubble.show {
+  animation: fadeInBubble 0.45s ease forwards;
+  pointer-events: auto;
+}
+
+#section15 .section15-bubble.has-portrait {
+  padding-left: 94px;
+}
+
+#section15 .bubble-portrait {
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+#section16 {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 390px;
+  height: 844px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff8ef 0%, #ffe9ef 55%, #ffe4d8 100%);
+}
+
+.section16-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section16-cut {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section16-cut.active {
+  display: block;
+}
+
+/* =========================
+   intro / success
+========================= */
+.cut16-1,
+.cut16-3 {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.cut16-1.active,
+.cut16-3.active {
+  display: flex;
+}
+
+.section16-bubble {
+  position: relative;
+  max-width: 290px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 2px solid #3a2e2a;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #3a2e2a;
+  box-shadow: 0 6px 0 rgba(58, 46, 42, 0.15);
+}
+
+.section16-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-right: 2px solid #3a2e2a;
+  border-bottom: 2px solid #3a2e2a;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.section16-bubble.success {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.section16-start-btn {
+  min-width: 180px;
+  height: 54px;
+  padding: 0 22px;
+  border: 2px solid #3a2e2a;
+  border-radius: 16px;
+  background: #ff8fab;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(58, 46, 42, 0.18);
+}
+
+.section16-start-btn:active {
+  transform: translateY(2px);
+}
+
+/* =========================
+   puzzle
+========================= */
+.cut16-2 {
+  padding: 24px 18px 20px;
+  box-sizing: border-box;
+}
+
+.section16-puzzle-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 18px;
+}
+
+.section16-title-wrap {
+  text-align: center;
+}
+
+.section16-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: #d46c80;
+}
+
+.section16-title {
+  margin: 0;
+  font-size: 26px;
+  color: #4f3440;
+  line-height: 1.2;
+}
+
+.section16-sub {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #7b5e6b;
+  line-height: 1.5;
+}
+
+.section16-board-box {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 8px 20px rgba(120, 80, 96, 0.08);
+}
+
+.section16-puzzle {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  touch-action: none;
+  user-select: none;
+}
+
+.section16-cell {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border: 1px solid #f0d6de;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: #5b4250;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.05);
+  transition: 0.15s ease;
+}
+
+.section16-cell.selected {
+  background: #ffdbe4;
+  border-color: #ff91aa;
+  transform: scale(0.96);
+}
+
+.section16-cell.found {
+  background: #ff96ad;
+  color: #fff;
+  border-color: #ff7996;
+}
+
+.section16-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.section16-word-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8a6875;
+  letter-spacing: 1px;
+}
+
+.section16-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section16-word {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #f1c8d3;
+  color: #664a57;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.section16-word.found {
+  background: #ffcad6;
+  border-color: #ff91a7;
+  color: #8f314a;
+  text-decoration: line-through;
+}
+
+.section16-message {
+  min-height: 22px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7d5362;
+  margin-top: 4px;
+}
+.section16-skip-btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 44px;
+
+  border: 2px solid #3a2e2a;
+  border-radius: 12px;
+  background: #ddd;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* section17 */
+#section17 {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 390px;
+  height: 844px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.section17-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section17-bubble {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 2px solid #3a2e2a;
+  border-radius: 20px;
+
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #3a2e2a;
+
+  box-shadow: 0 6px 0 rgba(58, 46, 42, 0.15);
+}
+

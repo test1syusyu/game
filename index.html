@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>햄스터 구출 대작전</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 개발 확인용 챕터 네비 -->
+<div id="dev-nav" class="dev-nav">
+  <button class="dev-nav-btn" data-target="section01">INTRO</button>
+  <button class="dev-nav-btn" data-target="section06">01</button>
+  <button class="dev-nav-btn" data-target="section11">02</button>
+  <button class="dev-nav-btn" data-target="section15">03</button>
+</div>
+  <!-- section01 : 시작 화면 -->
+  <section id="section01" class="screen active">
+    <div class="section01-inner">
+
+      <!-- 게임 타이틀 이미지 -->
+      <h1 class="game-title">
+        <img src="./img/title.png" alt="햄스터 구출 대작전">
+      </h1>
+
+      <!-- 서브 문구 -->
+      <p class="start-text">모험을 떠나겠습니까?</p>
+
+      <!-- 시작 버튼 -->
+      <button id="start-btn" class="start-btn">START</button>
+
+    </div>
+  </section>
+
+  <!-- 다음 화면 (임시) -->
+  <section id="section02" class="screen">
+    <div class="section02-inner">
+  
+      <!-- 캐릭터 -->
+      <img src="./img/01_adventur.png" alt="모험가" class="story-character adventurer">
+      <img src="./img/02_hamster.png" alt="햄스터" class="story-character hamster">
+  
+      <!-- 대사 버블 -->
+      <div class="story-bubble" id="storyBubble">
+        <p class="story-text">
+          모험가(당신)과 먹보햄찌는<br>
+          뗄레야 뗄 수 없는 아주<br>
+          소중한 친구예요.
+        </p>
+  
+        <button id="continue-btn" class="continue-btn" type="button">계속</button>
+      </div>
+  
+    </div>
+  </section>
+  <section id="section03">
+    <div class="section03-cut cut1 active">
+      <div class="story-bubble show">
+        <p class="story-text">
+          해바라기 밭에서 해씨를<br>열심히 먹고 있는<br>
+          먹보햄찌 위로 드리운 그림자..!
+        </p>
+        <button class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <div class="section03-cut cut2">
+      <div class="story-bubble show">
+        <p class="story-text">
+          독수리가 등장했어요!
+        </p>
+        <button class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <div class="section03-cut cut3">
+      <div class="story-bubble show has-portrait">
+        <img src="./img/03_eagle_thum.png" alt="독수리" class="bubble-portrait">
+        <p class="story-text">
+          독수리 : <br>
+          통통하이..<br>
+          잡아가야지~
+        </p>
+        <button class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <div class="section03-cut cut4">
+      <div class="story-bubble show">
+        <p class="story-text">
+          큰일났어요!<br>
+          독수리가 햄찌를 잡아갔어요!
+        </p>
+        <button class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <div class="section03-cut cut5">
+      <div class="story-bubble show has-portrait">
+        <img src="./img/02_hamster_thum.png" alt="햄스터" class="bubble-portrait">
+        <p class="story-text">
+          먹보햄찌 : <br>
+          #?!@ 찌이이익!!<br>
+          살려조!!!!
+        </p>
+        <button class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <section id="section04">
+    <div class="section04-inner">
+      <div class="story-bubble show section04-bubble" id="section04Bubble">
+        <p class="story-text">
+          햄찌를 구하러 가겠습니까?
+        </p>
+        <button id="show-choice-btn" class="continue-btn" type="button">계속</button>
+      </div>
+  
+      <div class="choice-wrap" id="choiceWrap">
+        <button id="go-btn" class="choice-btn go-btn" type="button">구하러 간다</button>
+        <button id="no-go-btn" class="choice-btn no-go-btn" type="button">구하러 가지 않는다</button>
+      </div>
+    </div>
+  </section>
+  <section id="section05">
+    <div class="section05-inner">
+      <div class="story-bubble show warning-bubble" id="warningBubble">
+        <p class="story-text warning-title">⚠ 경고</p>
+        <p class="story-text">
+          모험을 떠나기 전에 물건을 챙기세요<br>
+          진짜로 물건을 싸서 이동하세요<br>
+          아니면 다 사야합니다.
+        </p>
+        <button id="warning-next-btn" class="continue-btn" type="button">계속</button>
+      </div>
+  
+      <div class="paper-wrap" id="paperWrap">
+        <img src="./img/04_paper.png" alt="준비물 종이" class="paper-image">
+  
+        <div class="paper-text" id="paperText">
+          <p class="paper-line">속옷(핑구팬쮸)</p>
+          <p class="paper-line">잠옷(반팔+츄리닝)</p>
+          <p class="paper-line">양말</p>
+          <p class="paper-line">세안도구(칫솔단)</p>
+          <p class="paper-line">스킨로션</p>
+          <p class="paper-line">밧데리</p>
+          <p class="paper-line highlight">그리고</p>
+          <p class="paper-line final">용기와<br>사랑!</p>
+        </div>
+        <button id="paper-next-btn" class="paper-next-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <!-- chapter 01 -->
+  <section id="section06">
+    <div class="section06-inner"> 
+      <div class="chapter-badge">Chapter01</div>
+      <!-- START 자체가 버튼 -->
+      <h2 id="chapter-start" class="chapter-start">START!</h2>
+      <!-- 말풍선 -->
+      <div class="story-bubble chapter-bubble" id="chapterBubble">
+        <p class="story-text">
+          모험가(당신)은 열심히 가다<br>
+          무언가를 발견합니다..!
+        </p>
+        <button id="chapter-continue-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <section id="section07">
+    <div class="section07-cut cut07-1 active">
+      <div class="story-bubble show section07-bubble1">
+        <p class="story-text">
+          눈 앞에 연못이 있네요.<br>
+          분위기 왤케 바뀌냐고 묻지마요..<br>
+          암튼 자세히 보니 뭐가 있네요
+        </p>
+        <button id="section07-next-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+    <div class="section07-cut cut07-2">
+      <div class="story-bubble show section07-bubble2">
+        <p class="story-text">
+          엄청 귀여운 햄찌 세마리가<br>
+          물에 빠져있어요!<br>
+          빨리 구해줘야해요!
+        </p>
+      </div>
+      <button id="help-btn" class="help-btn" type="button">도와준다</button>
+    </div>
+  </section>
+  <section id="section08">
+    <!-- 컷1 : 튜브는 하나 -->
+    <div class="section08-cut cut08-1 active">
+      <div class="story-bubble show section08-bubble">
+        <p class="story-text">
+          안타깝게도 튜브는 단 하나!<br>
+          구할 수 있는 햄찌는<br>
+          단 한 마리<br>
+          누구를 구할것인가요?
+        </p>
+        <button id="section08-next-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <!-- 컷2 : 선택 화면 -->
+    <div class="section08-cut cut08-2">
+      <div class="hamster-choice-wrap">
+        <button class="hamster-choice-btn" data-choice="cute">1. 귀여운 햄찌</button>
+        <button class="hamster-choice-btn" data-choice="pretty">2. 이쁜 햄찌</button>
+        <button class="hamster-choice-btn" data-choice="kind">3. 착한 햄찌</button>
+      </div>
+    </div>
+  
+    <!-- 컷3 : 귀여운 햄찌 -->
+    <div class="section08-cut cut08-3">
+      <div class="story-bubble show section08-bubble has-portrait">
+        <img src="./img/ch1_ham1.png" alt="귀여운 햄찌" class="bubble-portrait">
+        <p class="story-text">
+          귀여운햄찌 : <br>
+          살려줘서 고맙쮸~<br>
+          댓가로 장소를 알려줄게!
+        </p>
+        <button class="section08-result-next continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <!-- 컷4 : 이쁜 햄찌 -->
+    <div class="section08-cut cut08-4">
+      <div class="story-bubble show section08-bubble has-portrait">
+        <img src="./img/ch1_ham2.png" alt="이쁜 햄찌" class="bubble-portrait">
+        <p class="story-text">
+          이쁜햄찌 : <br>
+          살려줘서 고맙쮸~<br>
+          댓가로 장소를 알려줄게!
+        </p>
+        <button class="section08-result-next continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <!-- 컷5 : 착한 햄찌 -->
+    <div class="section08-cut cut08-5">
+      <div class="story-bubble show section08-bubble has-portrait">
+        <img src="./img/ch1_ham3.png" alt="착한 햄찌" class="bubble-portrait">
+        <p class="story-text">
+          착한햄찌 : <br>
+          살려줘서 고맙쮸~<br>
+          댓가로 장소를 알려줄게!
+        </p>
+        <button class="section08-result-next continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <section id="section09">
+    <div class="section09-inner">
+      <div class="story-bubble show section09-bubble">
+        <p class="story-text">
+          어려움을 보고 그냥 지나치지 못하는
+          착한 모험가(당신)에게 감동하여
+          햄찌 모두에게 튜브를 제공할게요!
+        </p>
+        <button id="section09-next-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <section id="section10">
+    <div class="section10-inner">
+      <div class="story-bubble show section10-bubble">
+        <p class="story-text">
+          장소 01.<br>
+          위의 장소에서<br>
+          '김수연'이라고 하고<br>
+          케이크를 픽업해주세요!
+        </p>
+        <button id="section10-next-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <!--chpater 02 -->
+  <section id="section11">
+    <div class="section11-inner"> 
+      <div class="chapter-badge">Chapter02</div>
+      <h2 id="chapter2-start" class="chapter-start">START!</h2>
+  
+      <div class="section11-cut cut11-1">
+        <div class="story-bubble chapter-bubble show">
+          <p class="story-text">
+            챕터1을 깨다니!!<br>
+            축하드립니다..!
+          </p>
+          <button class="chapter2-next-btn continue-btn" type="button">계속</button>
+        </div>
+      </div>
+  
+      <div class="section11-cut cut11-2">
+        <div class="story-bubble chapter-bubble show">
+          <p class="story-text">
+            햄찌와 한 발 더<br>
+            가까워졌어요
+          </p>
+          <button class="chapter2-next-btn continue-btn" type="button">계속</button>
+        </div>
+      </div>
+  
+      <div class="section11-cut cut11-3">
+        <div class="story-bubble chapter-bubble show">
+          <p class="story-text">
+            하지만 앞을 막는<br>
+            또 다른 그림자
+          </p>
+          <button class="chapter2-next-btn continue-btn" type="button">계속</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section12">
+    <div class="section12-cut cut12-1 active">
+      <div class="story-bubble show section12-bubble has-portrait">
+        <img src="./img/03_eagle_thum.png" alt="독수리" class="bubble-portrait">
+        <p class="story-text">
+          독수리 : <br>
+          용케 여기까지 왔군...
+        </p>
+        <button class="section12-next-btn continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <div class="section12-cut cut12-2">
+      <div class="story-bubble show section12-bubble has-portrait">
+        <img src="/img/01_adventur_thu,.png" alt="모험가" class="bubble-portrait">
+        <p class="story-text">
+          모험가 : <br>
+          내 햄찌 돌려줘!
+        </p>
+        <button class="section12-next-btn continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  
+    <div class="section12-cut cut12-3">
+      <div class="story-bubble show section12-bubble has-portrait">
+        <img src="./img/03_eagle_thum.png" alt="독수리" class="bubble-portrait">
+        <p class="story-text">
+          독수리 : <br>
+          나랑 게임에서 이기면
+          햄찌를 돌려주겠다..!
+        </p>
+        <button id="section12-final-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </section>
+  <section id="section13">
+    <div class="section13-inner">
+      <!-- 처음 안내 말풍선 -->
+      <div class="story-bubble section13-intro-bubble" id="section13IntroBubble">
+        <p class="story-text">
+          독수리와 승부를 해야 해요!<br>
+          무승부 또는 승리하면<br>
+          다음 장소를 알려줍니다.
+        </p>
+      </div>
+  
+      <!-- 싸우다 버튼 (말풍선과 별개) -->
+      <button id="fight-start-btn" class="fight-start-btn" type="button">싸운다</button>
+      <!-- 게임판 -->
+      <div class="battle-game-wrap" id="battleGameWrap">
+        <p class="battle-title">독수리와의 승부</p>
+        <p class="battle-desc">
+          당신은 <strong>X</strong>, 독수리는 <strong>O</strong><br>
+          무승부 또는 승리 시 성공!
+        </p>
+  
+        <div class="battle-status" id="battleStatus">당신의 차례입니다</div>
+  
+        <div class="battle-board" id="battleBoard">
+          <button class="battle-cell" data-index="0" type="button"></button>
+          <button class="battle-cell" data-index="1" type="button"></button>
+          <button class="battle-cell" data-index="2" type="button"></button>
+          <button class="battle-cell" data-index="3" type="button"></button>
+          <button class="battle-cell" data-index="4" type="button"></button>
+          <button class="battle-cell" data-index="5" type="button"></button>
+          <button class="battle-cell" data-index="6" type="button"></button>
+          <button class="battle-cell" data-index="7" type="button"></button>
+          <button class="battle-cell" data-index="8" type="button"></button>
+        </div>
+  
+        <div class="battle-btns">
+          <button id="battle-reset-btn" class="battle-control-btn" type="button">다시 시작</button>
+        </div>
+      </div>
+  <div class="section13-blackout" id="section13Blackout"></div>
+      <!-- 성공 후 결과 말풍선 -->
+      <div class="story-bubble section13-result-bubble" id="section13ResultBubble">
+        <p class="story-text" id="section13ResultText">
+          독수리와 싸워 이기다니!<br>
+          다음 장소를 안내하겠습니다.
+        </p>
+        <button id="section13-next-btn" class="continue-btn" type="button">계속</button>
+      </div>
+  
+    </div>
+  </section>
+  <section id="section14">
+  <div class="section14-inner">
+    <div class="story-bubble show section14-bubble">
+      <p class="story-text">
+       02.장소 <br> 케이크 픽업 후<br>위의 장소로 이동하세요.
+      </p>
+      <button id="section14-next-btn" class="continue-btn" type="button">계속</button>
+    </div>
+  </div>
+</section>
+  <!-- chapter 03 -->
+<section id="section15">
+  <div class="section15-inner">
+    <div class="chapter-badge">Chapter03</div>
+
+    <div class="section15-cut cut15-1">
+      <div class="story-bubble section15-bubble">
+        <p class="story-text">
+          둥지에서 반가운 얼굴이<br>
+          반겨주고 있네요.<br>
+          어서 가봐요!
+        </p>
+        <button class="section15-next-btn continue-btn" type="button">계속</button>
+      </div>
+    </div>
+
+    <div class="section15-cut cut15-2">
+      <div class="story-bubble section15-bubble has-portrait">
+        <img src="./img/02_hamster_thum.png" alt="햄찌" class="bubble-portrait">
+        <p class="story-text">
+          먹보햄찌 :<br>
+          흐아아앙~ 보고싶었어!<br>
+          나 살려줘
+        </p>
+        <button class="section15-next-btn continue-btn" type="button">계속</button>
+      </div>
+    </div>
+
+    <div class="section15-cut cut15-3">
+      <div class="story-bubble section15-bubble">
+        <p class="story-text">
+          햄찌를 구하려는데<br>
+          암호가 있어요.<br>
+          암호를 풀어보아요
+        </p>
+        <button id="section15-final-btn" class="continue-btn" type="button">계속</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section16">
+  <div class="section16-inner">
+
+    <!-- intro 화면 -->
+    <div class="section16-cut cut16-1 active">
+      <div class="section16-bubble">
+        암호를 함께 풀어보아요
+      </div>
+      <button class="section16-start-btn" id="section16StartBtn" type="button">
+        암호를 풀자
+      </button>
+    </div>
+
+    <!-- puzzle 화면 -->
+    <div class="section16-cut cut16-2">
+      <div class="section16-puzzle-wrap">
+        <div class="section16-title-wrap">
+          <p class="section16-label">WORD PUZZLE</p>
+          <h2 class="section16-title">숨겨진 단어를 찾아보세요</h2>
+          <p class="section16-sub">단어를 드래그해서 모두 찾아주세요.</p>
+        </div>
+
+        <div class="section16-board-box">
+          <div id="section16Puzzle" class="section16-puzzle"></div>
+        </div>
+
+        <div class="section16-bottom">
+          <div class="section16-word-label">WORDS</div>
+          <div id="section16Words" class="section16-words"></div>
+          <p id="section16Message" class="section16-message"></p>
+           <!-- <button id="section16SkipBtn" class="section16-skip-btn" type="button">
+    skip
+  </button> -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- success 화면 -->
+    <div class="section16-cut cut16-3">
+      <div class="section16-bubble success">
+        성공했어요!
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="section17">
+  <div class="section17-inner">
+    <div class="section17-bubble">
+      이제 모든 미션이 끝났어요.<br />
+      마지막은 호텔 카운터에서<br />
+      <strong>김수연</strong> 이름을 말하고<br />
+      방을 찾아가세요.
+    </div>
+  </div>
+</section>
+  <script src="script.js"></script>
+</body>
+</html>
