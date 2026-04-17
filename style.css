@@ -3,11 +3,9 @@
 ========================= */
 @font-face {
   font-family: "DungGeunMo";
-  src: url("./fonts/DungGeunMo.woff2") format("woff2"),
-       url("./fonts/DungGeunMo.woff") format("woff");
+  src: url("./fonts/DungGeunMo.woff2") format("woff2");
   font-display: swap;
 }
-
 /* =========================
    2. RESET
 ========================= */
@@ -22,14 +20,13 @@ body {
   width: 100%;
   height: 100%;
   background: #000;
-  font-family: "DungGeunMo";
 }
 
 body {
   margin: 0;
   overflow: hidden;
   position: relative;
-  font-family: "DungGeunMo", monospace;
+  font-family: "DungGeunMo", sans-serif;
   color: #fff;
 }
 
