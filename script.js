@@ -980,52 +980,48 @@ if (section15FinalBtn) {
     return puzzleEl.querySelector(`.section16-cell[data-x="${x}"][data-y="${y}"]`);
   }
 
-  function startSelection(cell, pointerId) {
-    if (!cell || cell.classList.contains("found") || section16Completed) return;
+function startSelection(cell, pointerId) {
+  if (!cell || section16Completed) return;
 
-    clearSelectedState();
-    isSelecting = true;
-    currentPointerId = pointerId;
-    selectedCells = [cell];
-    cell.classList.add("selected");
-  }
+  clearSelectedState();
+  isSelecting = true;
+  currentPointerId = pointerId;
+  selectedCells = [cell];
+  cell.classList.add("selected");
+}
 
   function updateSelection(cell) {
-    if (!isSelecting || !cell || section16Completed) return;
-    if (cell.classList.contains("found")) return;
+  if (!isSelecting || !cell || section16Completed) return;
 
-    const first = selectedCells[0];
-    const x1 = Number(first.dataset.x);
-    const y1 = Number(first.dataset.y);
-    const x2 = Number(cell.dataset.x);
-    const y2 = Number(cell.dataset.y);
+  const first = selectedCells[0];
+  const x1 = Number(first.dataset.x);
+  const y1 = Number(first.dataset.y);
+  const x2 = Number(cell.dataset.x);
+  const y2 = Number(cell.dataset.y);
 
-    const dx = x2 - x1;
-    const dy = y2 - y1;
+  const dx = x2 - x1;
+  const dy = y2 - y1;
 
-    const straight = dx === 0 || dy === 0 || Math.abs(dx) === Math.abs(dy);
-    if (!straight) return;
+  const straight = dx === 0 || dy === 0 || Math.abs(dx) === Math.abs(dy);
+  if (!straight) return;
 
-    const stepX = dx === 0 ? 0 : dx / Math.abs(dx);
-    const stepY = dy === 0 ? 0 : dy / Math.abs(dy);
-    const distance = Math.max(Math.abs(dx), Math.abs(dy));
+  const stepX = dx === 0 ? 0 : dx / Math.abs(dx);
+  const stepY = dy === 0 ? 0 : dy / Math.abs(dy);
+  const distance = Math.max(Math.abs(dx), Math.abs(dy));
 
-    clearSelectedState();
+  clearSelectedState();
 
-    for (let i = 0; i <= distance; i++) {
-      const nextX = x1 + stepX * i;
-      const nextY = y1 + stepY * i;
-      const nextCell = getCell(nextX, nextY);
+  for (let i = 0; i <= distance; i++) {
+    const nextX = x1 + stepX * i;
+    const nextY = y1 + stepY * i;
+    const nextCell = getCell(nextX, nextY);
 
-      if (!nextCell || nextCell.classList.contains("found")) {
-        return;
-      }
+    if (!nextCell) return;
 
-      selectedCells.push(nextCell);
-      nextCell.classList.add("selected");
-    }
+    selectedCells.push(nextCell);
+    nextCell.classList.add("selected");
   }
-
+}
   function endSelection() {
     if (!isSelecting || section16Completed) return;
 
