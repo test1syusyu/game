@@ -1220,6 +1220,7 @@ section.active {
   height: 58px;
   object-fit: contain;
 }
+
 #section16 {
   display: none;
   position: absolute;
@@ -1232,6 +1233,19 @@ section.active {
   background: linear-gradient(180deg, #fff8ef 0%, #ffe9ef 55%, #ffe4d8 100%);
 }
 
+@media (max-height: 760px) {
+  #section16 {
+    transform: translate(-50%, -50%) scale(0.88);
+    transform-origin: center center;
+  }
+}
+
+@media (max-height: 700px) {
+  #section16 {
+    transform: translate(-50%, -50%) scale(0.82);
+    transform-origin: center center;
+  }
+}
 .section16-inner {
   position: relative;
   width: 100%;
