@@ -1221,6 +1221,8 @@ section.active {
   object-fit: contain;
 }
 
+/* section 16 */
+
 #section16 {
   display: none;
   position: absolute;
@@ -1232,6 +1234,7 @@ section.active {
   overflow: hidden;
   background: linear-gradient(180deg, #fff8ef 0%, #ffe9ef 55%, #ffe4d8 100%);
 }
+
 .section16-inner {
   position: relative;
   width: 100%;
@@ -1372,8 +1375,6 @@ section.active {
   gap: 10px;
   justify-content: center;
 }
-
-
 
 
 
