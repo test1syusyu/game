@@ -1324,7 +1324,7 @@ section.active {
 .cut16-2 {
   padding: 24px 18px 20px;
   box-sizing: border-box;
-
+ min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
