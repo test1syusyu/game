@@ -1222,7 +1222,6 @@ section.active {
 }
 
 /* section 16 */
-
 #section16 {
   display: none;
   position: absolute;
@@ -1375,9 +1374,6 @@ section.active {
   gap: 10px;
   justify-content: center;
 }
-
-
-
 
 
 
