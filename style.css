@@ -1321,41 +1321,37 @@ section.active {
 /* =========================
    puzzle
 ========================= */
+
 .cut16-2 {
+  position: relative;
   padding: 24px 18px 20px;
   box-sizing: border-box;
- min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
 .section16-puzzle-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* 세로 가운데 */
-  align-items: center;       /* 가로 가운데 */
-  height: 100%;
+  align-items: center;
   gap: 18px;
-  width: 100%;
+
+  width: calc(100% - 36px);
+  max-width: 354px;
 }
 
 .section16-title-wrap,
 .section16-board-box,
 .section16-bottom {
   width: 100%;
-  max-width: 340px;
 }
 
 .section16-title-wrap {
   text-align: center;
-}
-
-.section16-board-box {
-  background: rgba(255, 255, 255, 0.88);
-  border-radius: 22px;
-  padding: 14px;
-  box-shadow: 0 8px 20px rgba(120, 80, 96, 0.08);
 }
 
 .section16-bottom {
@@ -1363,7 +1359,6 @@ section.active {
   flex-direction: column;
   gap: 12px;
   align-items: center;
-  flex: unset;
 }
 
 .section16-word-label,
@@ -1377,6 +1372,15 @@ section.active {
   gap: 10px;
   justify-content: center;
 }
+
+
+
+
+
+
+
+
+
 /* section17 */
 
 #section17 {
